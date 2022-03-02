@@ -50,11 +50,10 @@ describe("계산기 애플리케이션", () => {
   });
 
   it("숫자는 한번에 최대 3자리 수까지 입력 가능하다.", () => {
-    cy.get(".digit").contains("1").click();
-    cy.get(".digit").contains("2").click();
-    cy.get(".digit").contains("3").click();
-    cy.get(".digit").contains("4").click();
-    cy.get("#total").should("have.text", "123");
+    for (let i = 0; i < 4; i++) {
+      cy.get(".digit").contains("1").click();
+    }
+    cy.get("#total").should("have.text", "111");
   });
 
   it("계산 결과를 표현할 때 소수점 이하는 버림한다.", () => {
